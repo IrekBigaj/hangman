@@ -1,0 +1,50 @@
+[
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Fantomas",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Myszka Miki",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Terminator",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Superman",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Herkules",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Batman",
+		"level": "easy"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Kapitan Ameryka",
+		"level": "medium"
+	},
+	{
+		"lang": "pl",
+		"category": "movies",
+		"sentence": "Super pies",
+		"level": "hard"
+	}
+]

@@ -1,5 +1,7 @@
 //TODO: do przeniesienia do zewnętrznego pliku JSON
 categories: ["Ogólne", "Sport", "Szkoła", "Boże Narodzenie", "Film"];
+levels: ["easy", "medium", "hard"]; 
+
 
 //TODO: do przeniesienia do zewnętrznego pliku JSON
 // rozbudować o powiązanie z kategoriami, aby po wylosowaniu hasła wyświetlać także kategorię z jakiej jest hasło
@@ -76,7 +78,7 @@ function startGame() {
 	// console.log("Start game button pressed.");
 	generateWord();
 	enableAllLetters();
-	// showNoAttempts();
+	showNoAttempts(attempt_number);
 }
 
 function checkLetterInSentence(letter) {
@@ -93,10 +95,9 @@ function gameOver() {
 
 function showNoAttempts(attempt_number) {
 	//todo
-	const where_attempts = document.getElementsByClassName("game-data");
+	const where_attempts = document.getElementsByClassName("game-data")[0];
 	console.log(where_attempts);
-	where_attempts.innerText = 123;
-	where_attempts.appendChild("123");
+	where_attempts.innerText = attempt_number;
 	console.log(attempt_number);
 }
 
