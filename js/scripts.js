@@ -1,7 +1,6 @@
 //TODO: do przeniesienia do zewnętrznego pliku JSON
 categories: ["Ogólne", "Sport", "Szkoła", "Boże Narodzenie", "Film"];
-levels: ["easy", "medium", "hard"]; 
-
+levels: ["easy", "medium", "hard"];
 
 //TODO: do przeniesienia do zewnętrznego pliku JSON
 // rozbudować o powiązanie z kategoriami, aby po wylosowaniu hasła wyświetlać także kategorię z jakiej jest hasło
@@ -35,6 +34,7 @@ function generateWord() {
 	console.log("Word generated: " + currentSentece);
 
 	showSentenceSpaces(currentSentece);
+	return currentSentece;
 }
 
 function showSentenceSpaces(sentence) {
@@ -76,9 +76,12 @@ function enableAllLetters() {
 
 function startGame() {
 	// console.log("Start game button pressed.");
-	generateWord();
+	currentSentece = generateWord();
 	enableAllLetters();
 	showNoAttempts(attempt_number);
+	console.log(currentSentece + " zostało:" + attempt_number + " prob");
+	// zamien zdanie na tablice
+	// sprawdz ile
 }
 
 function checkLetterInSentence(letter) {

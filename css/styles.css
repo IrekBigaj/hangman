@@ -100,7 +100,12 @@ button {
 	color: var(--main_text_color);
 }
 
-.game-letter:hover {
+.game-letter:disabled {
+	color: rgba(100, 100, 100, 0.4);
+	cursor: default;
+}
+
+.game-letter:hover:not([disabled]) {
 	background: var(--special_bgr_color);
 	transition: 0.25s ease;
 }
