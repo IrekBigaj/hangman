@@ -80,11 +80,31 @@ function startGame() {
 	enableAllLetters();
 	showNoAttempts(attempt_number);
 	console.log(currentSentece + " zostało:" + attempt_number + " prob");
+	checkLetterInSentence();
 	// zamien zdanie na tablice
 	// sprawdz ile
 }
 
-function checkLetterInSentence(letter) {
+//function checkLetterInSentence(letter) {
+function checkLetterInSentence() {
+	// document
+	// 	.getElementsByClassName("game-letter")
+	// 	.addEventListener("click", function () {
+	// 		console.log(innerText);
+
+	let elemLetters = document.querySelector(".game-letters");
+
+	elemLetters.addEventListener("click", (e) => {
+		if (
+			// e.target.nodeName.toUpperCase() === "BUTTON" &&
+			e.target.classList.contains("game-letter")
+		) {
+			let letter = e.target.dataset.letter.toUpperCase();
+			// this.checkLettersInSentention(letter.toUpperCase());
+			console.log("Klawisz " + letter);
+			e.target.disabled = true; //Disable used letter
+		}
+	});
 	//jeśli litera jest w haśle to ją wyświetl
 	//jeśli litery nie ma w haśle to zmniejsz liczbę prób
 	//jeśli skończyła się liczba prób to zakończ grę
@@ -147,6 +167,7 @@ function generateLetterButtons() {
 		button.classList.add("game-letter");
 		button.type = "button";
 		button.classList.add(letter);
+		button.dataset.letter = letter;
 		button.innerText = letter;
 		document.getElementsByClassName("game-letters")[0].appendChild(button);
 	});
