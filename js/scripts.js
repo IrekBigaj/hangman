@@ -27,23 +27,23 @@ function generateWord() {
 	const max_no = sentences.length - 1;
 	const min_no = 0;
 	const random_no = Math.floor(Math.random() * max_no);
-	let currentSentece = sentences[random_no].toUpperCase();
+	let currentSentence = sentences[random_no].toUpperCase();
 
-	// return [currentSentece, currentSenteceLength];
+	// return [currentSentence, currentSentenceLength];
 
-	console.log("Word generated: " + currentSentece);
+	console.log("Word generated: " + currentSentence);
 
-	showSentenceSpaces(currentSentece);
-	return currentSentece;
+	showSentenceSpaces(currentSentence);
+	return currentSentence;
 }
 
 function showSentenceSpaces(sentence) {
-	const currentSenteceLength = sentence.length;
+	const currentSentenceLength = sentence.length;
 	const letters = sentence.split("");
 	const where = document.getElementById("game-sentence");
 
 	// console.log(where);
-	// console.log("Show sentence: " + sentence + " letters: " + currentSenteceLength	);
+	// console.log("Show sentence: " + sentence + " letters: " + currentSentenceLength	);
 
 	where.innerText = "";
 
@@ -76,17 +76,26 @@ function enableAllLetters() {
 
 function startGame() {
 	// console.log("Start game button pressed.");
-	currentSentece = generateWord();
+	currentSentence = generateWord();
 	enableAllLetters();
 	attempt_number = 5;
 	showNoAttempts(attempt_number);
-	console.log(currentSentece + " zostało:" + attempt_number + " prob");
+	console.log(currentSentence + " zostało:" + attempt_number + " prob");
 	//checkLetterInSentence();
 	// zamien zdanie na tablice
 	// sprawdz ile
 }
 
 function checkLetterInSentence() {
+	if (currentSentence.includes(letter)) {
+		for (let i = 0; i < currentSentence.length; i++) {
+			if (currentSentence[i] === letter) {
+				elemSentence.querySelectorAll(".game-sentence-box")[i].innerText =
+					letter;
+			}
+		}
+	}
+
 	// decrease number of attmpts
 	attempt_number = attempt_number - 1;
 	showNoAttempts(attempt_number);
