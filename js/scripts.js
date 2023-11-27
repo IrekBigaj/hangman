@@ -81,41 +81,38 @@ function startGame() {
 	attempt_number = 5;
 	showNoAttempts(attempt_number);
 	console.log(currentSentece + " zostało:" + attempt_number + " prob");
-	checkLetterInSentence();
+	//checkLetterInSentence();
 	// zamien zdanie na tablice
 	// sprawdz ile
 }
 
-//function checkLetterInSentence(letter) {
 function checkLetterInSentence() {
-	// document
-	// 	.getElementsByClassName("game-letter")
-	// 	.addEventListener("click", function () {
-	// 		console.log(innerText);
+	// decrease number of attmpts
+	attempt_number = attempt_number - 1;
+	showNoAttempts(attempt_number);
+	console.log("Liczba prob po: " + attempt_number);
+	if (attempt_number === 0) {
+		gameOver();
+	}
 
+	//jeśli litera jest w haśle to ją wyświetl
+	//jeśli litery nie ma w haśle to zmniejsz liczbę prób
+	//jeśli skończyła się liczba prób to zakończ grę
+}
+
+function addButtonsListeners() {
 	let elemLetters = document.querySelector(".game-letters");
-	//to do - something is wront in second sentence - somthing should be erased
 	elemLetters.addEventListener("click", (e) => {
 		if (
 			// e.target.nodeName.toUpperCase() === "BUTTON" &&
 			e.target.classList.contains("game-letter")
 		) {
 			let letter = e.target.dataset.letter.toUpperCase();
-			// this.checkLettersInSentention(letter.toUpperCase());
+			checkLetterInSentence(letter.toUpperCase());
 			console.log("Klawisz " + letter);
-			console.log("Liczba prob przed: " + attempt_number);
 			e.target.disabled = true; //Disable used letter
-			attempt_number = attempt_number - 1;
-			showNoAttempts(attempt_number);
-			console.log("Liczba prob po: " + attempt_number);
-			if (attempt_number === 0) {
-				gameOver();
-			}
 		}
 	});
-	//jeśli litera jest w haśle to ją wyświetl
-	//jeśli litery nie ma w haśle to zmniejsz liczbę prób
-	//jeśli skończyła się liczba prób to zakończ grę
 }
 
 function gameOver() {
@@ -184,6 +181,7 @@ function generateLetterButtons() {
 
 function initBoard() {
 	generateLetterButtons();
+	addButtonsListeners();
 	disableAllLetters();
 }
 
