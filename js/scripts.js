@@ -19,9 +19,12 @@ const sentences = [
 
 let attempt_number = 5; // standard no of attempts
 
-var english = document.getElementById("en"),
+let english = document.getElementById("en"),
 	polish = document.getElementById("pl"),
 	german = document.getElementById("de");
+
+// let elemSentence = document.querySelector(".game-sentence");
+let elemSentence = document.getElementById("game-sentence");
 
 function generateWord() {
 	const max_no = sentences.length - 1;
@@ -40,12 +43,12 @@ function generateWord() {
 function showSentenceSpaces(sentence) {
 	const currentSentenceLength = sentence.length;
 	const letters = sentence.split("");
-	const where = document.getElementById("game-sentence");
+	// const where = document.getElementById("game-sentence");
 
 	// console.log(where);
 	// console.log("Show sentence: " + sentence + " letters: " + currentSentenceLength	);
 
-	where.innerText = "";
+	elemSentence.innerText = "";
 
 	for (let i = 0; i < letters.length; i++) {
 		const div = document.createElement("div");
@@ -55,7 +58,7 @@ function showSentenceSpaces(sentence) {
 		}
 		// console.log(div);
 
-		where.appendChild(div);
+		elemSentence.appendChild(div);
 		// document.getElementsByClassName("game-sentece").appendChild(div);
 	}
 }
@@ -86,7 +89,8 @@ function startGame() {
 	// sprawdz ile
 }
 
-function checkLetterInSentence() {
+function checkLetterInSentence(letter) {
+	console.log("checkLetterInSentence for letter: " + letter);
 	if (currentSentence.includes(letter)) {
 		for (let i = 0; i < currentSentence.length; i++) {
 			if (currentSentence[i] === letter) {
