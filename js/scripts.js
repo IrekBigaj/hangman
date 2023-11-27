@@ -78,6 +78,7 @@ function startGame() {
 	// console.log("Start game button pressed.");
 	currentSentece = generateWord();
 	enableAllLetters();
+	attempt_number = 5;
 	showNoAttempts(attempt_number);
 	console.log(currentSentece + " zostało:" + attempt_number + " prob");
 	checkLetterInSentence();
@@ -93,7 +94,7 @@ function checkLetterInSentence() {
 	// 		console.log(innerText);
 
 	let elemLetters = document.querySelector(".game-letters");
-
+	//to do - something is wront in second sentence - somthing should be erased
 	elemLetters.addEventListener("click", (e) => {
 		if (
 			// e.target.nodeName.toUpperCase() === "BUTTON" &&
@@ -102,7 +103,14 @@ function checkLetterInSentence() {
 			let letter = e.target.dataset.letter.toUpperCase();
 			// this.checkLettersInSentention(letter.toUpperCase());
 			console.log("Klawisz " + letter);
+			console.log("Liczba prob przed: " + attempt_number);
 			e.target.disabled = true; //Disable used letter
+			attempt_number = attempt_number - 1;
+			showNoAttempts(attempt_number);
+			console.log("Liczba prob po: " + attempt_number);
+			if (attempt_number === 0) {
+				gameOver();
+			}
 		}
 	});
 	//jeśli litera jest w haśle to ją wyświetl
@@ -112,6 +120,7 @@ function checkLetterInSentence() {
 
 function gameOver() {
 	//to do
+
 	alert("Koniec gry. Nie zgadłeś hasła.");
 	disableAllLetters();
 }
