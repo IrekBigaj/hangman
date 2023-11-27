@@ -3,7 +3,7 @@ categories: ["Ogólne", "Sport", "Szkoła", "Boże Narodzenie", "Film"];
 levels: ["easy", "medium", "hard"];
 
 //TODO: do przeniesienia do zewnętrznego pliku JSON
-// rozbudować o powiązanie z kategoriami, aby po wylosowaniu hasła wyświetlać także kategorię z jakiej jest hasło
+//TODO: rozbudować o powiązanie z kategoriami, aby po wylosowaniu hasła wyświetlać także kategorię z jakiej jest hasło
 const sentences = [
 	"Fantomas",
 	"Myszka Miki",
@@ -84,9 +84,6 @@ function startGame() {
 	attempt_number = 5;
 	showNoAttempts(attempt_number);
 	console.log(currentSentence + " zostało:" + attempt_number + " prob");
-	//checkLetterInSentence();
-	// zamien zdanie na tablice
-	// sprawdz ile
 }
 
 function checkLetterInSentence(letter) {
@@ -98,19 +95,19 @@ function checkLetterInSentence(letter) {
 					letter;
 			}
 		}
+	} else {
+		// decrease number of attmpts
+		attempt_number = attempt_number - 1;
+		showNoAttempts(attempt_number);
+		console.log("Liczba prob po: " + attempt_number);
+		if (attempt_number === 0) {
+			gameOver();
+		}
 	}
 
-	// decrease number of attmpts
-	attempt_number = attempt_number - 1;
-	showNoAttempts(attempt_number);
-	console.log("Liczba prob po: " + attempt_number);
-	if (attempt_number === 0) {
-		gameOver();
-	}
-
-	//jeśli litera jest w haśle to ją wyświetl
-	//jeśli litery nie ma w haśle to zmniejsz liczbę prób
-	//jeśli skończyła się liczba prób to zakończ grę
+	//TODO: jeśli litera jest w haśle to ją wyświetl
+	//TODO: jeśli litery nie ma w haśle to zmniejsz liczbę prób
+	//TODO: jeśli skończyła się liczba prób to zakończ grę
 }
 
 function addButtonsListeners() {
@@ -129,9 +126,12 @@ function addButtonsListeners() {
 }
 
 function gameOver() {
-	//to do
-
 	alert("Koniec gry. Nie zgadłeś hasła.");
+	disableAllLetters();
+}
+
+function gameCompleted() {
+	alert("Odgadłeś hasło i wygrałeś! Brawo!");
 	disableAllLetters();
 }
 
