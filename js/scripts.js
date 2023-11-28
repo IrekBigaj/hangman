@@ -17,15 +17,74 @@ const sentences = [
 	"Kapitan Ameryka",
 ];
 
-let attempt_number = 5; // standard no of attempts
+let attempt_number = 5; // standard no of attempts for medium level
 let currentLettersInSentence = null;
 
 let english = document.getElementById("en"),
 	polish = document.getElementById("pl"),
 	german = document.getElementById("de");
 
+let easy = document.getElementById("easy"),
+	medium = document.getElementById("medium"),
+	hard = document.getElementById("hard");
+
 // let elemSentence = document.querySelector(".game-sentence");
 let elemSentence = document.getElementById("game-sentence");
+
+function changeLevelListeners() {
+	easy.addEventListener(
+		"click",
+		function () {
+			changeLevel(easy);
+			startGame();
+		},
+		false
+	);
+	medium.addEventListener(
+		"click",
+		function () {
+			changeLevel(medium);
+			startGame();
+		},
+		false
+	);
+	hard.addEventListener(
+		"click",
+		function () {
+			changeLevel(hard);
+			startGame();
+		},
+		false
+	);
+}
+
+function changeLevel(level) {
+	if (!level.classList.contains("current_level")) {
+		// delete current_level for all buttons
+
+		let allLevels = document.getElementsByClassName("button_level");
+		for (let i = 0; i < allLevels.length; i++) {
+			if (allLevels[i].classList.contains("current_level")) {
+			}
+			allLevels[i].classList.remove("current_level");
+		}
+	}
+	level.classList.add("current_level"); // set current_level for called button
+}
+
+function whatNoOfAttempts() {
+	//TODO select proper value depends of Level switch
+
+	let what_level = document.getElementsByClassName("current_level")[0].id;
+	console.log("what level: " + what_level);
+	if (what_level == "easy") {
+		attempt_number = 7;
+	} else if (what_level == "hard") {
+		attempt_number = 3;
+	} else {
+		attempt_number = 5;
+	}
+}
 
 function generateWord() {
 	const max_no = sentences.length - 1;
@@ -87,7 +146,7 @@ function startGame() {
 	// console.log("Start game button pressed.");
 	currentSentence = generateWord();
 	enableAllLetters();
-	attempt_number = 5;
+	whatNoOfAttempts(); //TODO should be proper value depends of chosen level
 	showNoAttempts(attempt_number);
 	console.log(currentSentence + " zostało:" + attempt_number + " prob");
 }
@@ -205,6 +264,7 @@ function generateLetterButtons() {
 }
 
 function initBoard() {
+	changeLevelListeners();
 	generateLetterButtons();
 	addButtonsListeners();
 	disableAllLetters();
