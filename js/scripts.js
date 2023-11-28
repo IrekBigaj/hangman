@@ -18,6 +18,7 @@ const sentences = [
 ];
 
 let attempt_number = 5; // standard no of attempts
+let currentLettersInSentence = null;
 
 let english = document.getElementById("en"),
 	polish = document.getElementById("pl"),
@@ -32,12 +33,17 @@ function generateWord() {
 	const random_no = Math.floor(Math.random() * max_no);
 	let currentSentence = sentences[random_no].toUpperCase();
 
+	currentLettersInSentence = currentSentence.replace(/ /g, "");
 	// return [currentSentence, currentSentenceLength];
 
 	console.log("Word generated: " + currentSentence);
 
 	showSentenceSpaces(currentSentence);
 	return currentSentence;
+}
+
+function LetterInSentenceExists() {
+	return currentLettersInSentence.length;
 }
 
 function showSentenceSpaces(sentence) {
@@ -95,6 +101,16 @@ function checkLetterInSentence(letter) {
 					letter;
 			}
 		}
+
+		currentLettersInSentence = currentLettersInSentence.replace(
+			new RegExp(letter, "g"),
+			""
+		);
+
+		if (!LetterInSentenceExists()) {
+			//if there is no letter in sentence
+			gameCompleted();
+		}
 	} else {
 		// decrease number of attmpts
 		attempt_number = attempt_number - 1;
@@ -104,10 +120,6 @@ function checkLetterInSentence(letter) {
 			gameOver();
 		}
 	}
-
-	//TODO: jeśli litera jest w haśle to ją wyświetl
-	//TODO: jeśli litery nie ma w haśle to zmniejsz liczbę prób
-	//TODO: jeśli skończyła się liczba prób to zakończ grę
 }
 
 function addButtonsListeners() {
