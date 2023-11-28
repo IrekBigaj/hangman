@@ -18,7 +18,8 @@ body {
 	margin: 0;
 }
 
-.language {
+.language,
+.level {
 	margin: 0 auto;
 	align-items: center;
 	justify-content: center;
@@ -29,7 +30,8 @@ button {
 	cursor: pointer;
 }
 
-.button_lang {
+.button_lang,
+.button_level {
 	cursor: pointer;
 	display: inline-block;
 	padding: 0.25em 0em;
@@ -40,12 +42,14 @@ button {
 	text-align: center;
 }
 
-.button_lang:hover {
+.button_lang:hover,
+.button_level:hover {
 	background: var(--special_bgr_color);
 	transition: 0.25s ease;
 }
 
-.current_lang {
+.current_lang,
+.current_level {
 	background: var(--special_bgr_color);
 }
 
@@ -85,6 +89,7 @@ button {
 	border: 0;
 	background: none;
 	box-shadow: none;
+	color: var(--main_text_color);
 }
 
 .game-letters {
@@ -131,6 +136,8 @@ button {
 	background-color: var(--main_bgr_color);
 	color: var(--main_text_color);
 	text-align: center;
+	justify-content: center;
+	align-items: center;
 	padding: 10px;
 	left: 0;
 	bottom: 0;
