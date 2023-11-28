@@ -132,6 +132,24 @@ button {
 	text-align: center;
 }
 
+.user-data,
+.save-user-name {
+	padding: 40px;
+	text-align: center;
+	color: var(--main_text_color);
+	font-size: 30px;
+}
+
+#username {
+	text-align: center;
+	color: var(--main_text_color);
+	font-size: 30px;
+}
+
+.save-user-name {
+	padding: 10px;
+}
+
 .header {
 	background-color: var(--main_bgr_color);
 	color: var(--main_text_color);
