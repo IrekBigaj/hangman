@@ -46,6 +46,8 @@ button {
 .button_level:hover {
 	background: var(--special_bgr_color);
 	transition: 0.4s ease;
+	scale: 1.1;
+	rotate: 10deg;
 }
 
 .current_lang,
@@ -113,6 +115,7 @@ button {
 .game-letter:hover:not([disabled]) {
 	background: var(--special_bgr_color);
 	transition: 0.25s ease;
+	rotate: 10deg;
 }
 
 .game-start {
