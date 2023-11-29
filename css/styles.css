@@ -45,7 +45,7 @@ button {
 .button_lang:hover,
 .button_level:hover {
 	background: var(--special_bgr_color);
-	transition: 0.25s ease;
+	transition: 0.4s ease;
 }
 
 .current_lang,
@@ -124,7 +124,7 @@ button {
 
 .game-start:hover {
 	background: var(--special_bgr_color);
-	transition: 0.25s ease;
+	transition: 0.4s ease;
 }
 
 .start-game {

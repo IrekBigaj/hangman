@@ -1,4 +1,5 @@
 //TODO: do przeniesienia do zewnętrznego pliku JSON
+game_name: ["Hangman", "Wisielec", "Henker"];
 categories: ["Ogólne", "Sport", "Szkoła", "Boże Narodzenie", "Film"];
 levels: ["easy", "medium", "hard"];
 
