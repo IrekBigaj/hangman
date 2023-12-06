@@ -18,6 +18,15 @@ body {
 	margin: 0;
 }
 
+.game_name {
+	/* transform-origin: -50% -50%; */
+	transition-duration: 2s;
+}
+
+.game_name:hover {
+	rotate: 360deg;
+}
+
 .language,
 .level {
 	margin: 0 auto;
@@ -105,6 +114,7 @@ button {
 	height: 70px;
 	padding: 5px;
 	color: var(--main_text_color);
+	transition: 0.25s ease;
 }
 
 .game-letter:disabled {
@@ -114,7 +124,6 @@ button {
 
 .game-letter:hover:not([disabled]) {
 	background: var(--special_bgr_color);
-	transition: 0.25s ease;
 	rotate: 10deg;
 }
 

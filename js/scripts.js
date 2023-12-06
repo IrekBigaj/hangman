@@ -18,6 +18,7 @@ const sentences = [
 	"Kapitan Ameryka",
 ];
 
+let user_score = 0; // number of points for user
 let attempt_number = 5; // standard no of attempts for medium level
 let currentLettersInSentence = null;
 
@@ -199,11 +200,16 @@ function addButtonsListeners() {
 
 function gameOver() {
 	alert("Koniec gry. Nie zgadłeś hasła.");
+	user_score = 0;
 	disableAllLetters();
 }
 
 function gameCompleted() {
-	alert("Odgadłeś hasło i wygrałeś! Brawo!");
+	user_score = user_score + attempt_number;
+	console.log("Points sum: " + user_score);
+	alert(
+		"Odgadłeś hasło i wygrałeś! Brawo! Łącznie masz punktów: " + user_score
+	);
 	disableAllLetters();
 }
 
