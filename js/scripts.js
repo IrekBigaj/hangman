@@ -16,6 +16,8 @@ const sentences = [
 	"Batman",
 	"Spiderman",
 	"Kapitan Ameryka",
+	"Kaczor Donald",
+	"Antman",
 ];
 
 let user_score = 0; // number of points for user
